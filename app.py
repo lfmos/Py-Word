@@ -1,6 +1,11 @@
 from flask import Flask, render_template
 
+from database import init_db
+
 app = Flask(__name__)
+
+# Inicializa o banco de dados ao iniciar o aplicativo
+init_db()
 
 @app.route('/')
 def home_page():

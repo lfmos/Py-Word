@@ -11,14 +11,28 @@ select {
     font-family: "Roboto", sans-serif;
 }
 
+
+body {
+    background-image: url('/static/img/background1.jpg');
+    background-attachment: fixed;
+    background-color: rgb(15, 182, 224);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main {
+    background-color: rgba(255, 255, 255, .9);
+}
+
 a {
     text-decoration: none;
-    color: steelblue;
+    color: rgb(15, 182, 224);
 }
 
 a:hover {
     text-decoration: none;
-    color: orangered;
+    color: rgb(0, 68, 255);
 }
 
 footer a {
@@ -27,7 +41,7 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--bs-warning);
+    color: var(--bs-info);
 }
 
 .border-md-top-0 {
