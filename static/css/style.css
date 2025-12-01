@@ -21,9 +21,15 @@ body {
     background-size: cover;
 }
 
+.navbar .nav-link:hover {
+    color: rgb(15, 182, 224);
+}
+
+
 main {
     background-color: rgba(255, 255, 255, .9);
 }
+
 
 a {
     text-decoration: none;

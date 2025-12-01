@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="static/img/favicon.png" type="image/png">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="shortcut icon" href="/static/img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="/static/css/style.css">
     <title>Py-World</title>
 </head>
 
@@ -19,10 +19,10 @@
 
     <a id="top"></a>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <h1 class="h5 m-0 fs-2 ">Py <i class="bi bi-globe2 text-info"></i></h1>
+                <img src="/static/img/logo-natal.png" alt="">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@
 
                 <ul class="navbar-nav me-auto border-md-top-0 mt-3 mt-md-0 ps-4 ps-md-0">
                     <li class="nav-item mt-2 mt-md-0"><a class="nav-link active" href="/">Início</a> </li>
-                    <li class="nav-item mt-2 mt-md-0"><a class="nav-link is-logged d-none" href="/newpad">Novo</a></li>
+                    <li class="nav-item mt-2 mt-md-0"><a class="nav-link is-logged d-none" href="/new">Novo</a></li>
                     <li class="nav-item mt-2 mt-md-0"><a class="nav-link" href="/contacts">Contatos</a></li>
                     <li class="nav-item mt-2 mt-md-0"><a class="nav-link" href="/about">Sobre</a></li>
                 </ul>
@@ -48,7 +48,7 @@
                     <ul class="navbar-nav order-1 order-md-2">
                         <li class="nav-item m-0 p-0 ps-4 ps-md-0">
                             <a class="nav-link d-flex align-items-center m-0 p-0" href="/login" id="userInOutLink" title="Login pelo Google">
-                                <img src="static/img/user.png" alt="Logue-se com o Google" class="rounded-circle avatar-sm">
+                                <img src="/static/img/user.png" alt="Logue-se com o Google" class="rounded-circle avatar-sm">
                                 <span class="d-md-none ms-3">Login</span>
                             </a>
                         </li>
@@ -58,7 +58,8 @@
         </div>
     </nav>
 
- <main class="container mt-5 p-4 flex-grow-1">
+    
+    <main class="container mt-5 p-4 pt-5 d-flex flex-column flex-grow-1">
 
         {# Mensagens flash formatadas no Bootstrap 5 #}
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -121,9 +122,9 @@
     <script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/12.4.0/firebase-auth-compat.js"></script>
     <!-- A configuração do Firebase deve ser "injetada" neste arquivo -->
-    <script src="static/js/firebaseConfig.js"></script>
+    <script src="/static/js/firebaseConfig.js"></script>
     <!-- Existem outras configurações neste arquivo -->
-    <script src="static/js/script.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 
 </html>
