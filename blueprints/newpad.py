@@ -5,6 +5,7 @@ import sqlite3
 from flask import Blueprint, flash, redirect, render_template, request, url_for
 from database import DB_NAME
 
+# Cria a "blueprint"
 newpad_bp = Blueprint('newpad', __name__)
 
 # Rota válida para os "method" "GET" e "POST"
@@ -29,7 +30,7 @@ def newpad_page():
         conn.row_factory = sqlite3.Row
         cursor = conn.cursor()
 
-        # Faz a insersão do novo registro
+        # Faz a insersão do novo registro no banco de dados
         cursor.execute(
             "INSERT INTO pads (pad_title, pad_content, pad_owner) VALUES (?, ?, ?)",
             (new_title, new_content, owner_uid,)
