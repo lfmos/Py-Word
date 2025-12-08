@@ -1,0 +1,81 @@
+{% extends "_base.html" %} {% block content %}
+<h2>Faça Contato</h2>
+<div class="d-flex flex-column flex-md-row container">
+  <!-- Formulário de contatos e Feedback -->
+  <div class="flex-grow-1 col-md-7 col-lg-8">
+    <form
+      action="https://www.w3schools.com/bootstrap5/action_page.php"
+      class="was-validated mb-4"
+      id="contact-form"
+    >
+      <p>
+        Preencha todos os campos para entrar em contato com o <em>Py-World</em>.</p>
+
+    
+      <!-- Nome -->
+      <div class="mb-3 mt-3">
+        <label for="cnt-name" class="form-label">Nome:</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="cnt-name"
+          placeholder="Seu nome completo."
+          name="cnt-name"
+          required
+          minlength="2"
+          value="{{ form.name }}"
+        />
+        <!-- div class="valid-feedback">Valid.</div -->
+        <div class="invalid-feedback">Preencha seu nome.</div>
+      </div>
+      <!-- E-mail -->
+      <div class="mb-3 mt-3">
+        <label for="cnt-email" class="form-label">E-mail:</label>
+        <input
+          type="email"
+          class="form-control form-control-lg"
+          id="cnt-email"
+          placeholder="Seu e-mail principal."
+          name="cnt-email"
+          required 
+          value="{{ form.email }}"
+        />
+        <!-- div class="valid-feedback">Valid.</div -->
+        <div class="invalid-feedback">Preencha seu e-mail.</div>
+      </div>
+      <!-- Assunto -->
+      <div class="mb-3 mt-3">
+        <label for="cnt-subject" class="form-label">Assunto:</label>
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          id="cnt-subject"
+          placeholder="Assunto do contato."
+          name="cnt-subject"
+          required
+          minlength="3"
+          value="{{ form.subject }}"
+        />
+        <!-- div class="valid-feedback">Valid.</div -->
+        <div class="invalid-feedback">Preencha o assunto.</div>
+      </div>
+      <!-- Mensagem -->
+      <div class="mb-3 mt-3">
+        <label for="cnt-message" class="form-label">Mensagem:</label>
+        <textarea
+          class="form-control form-control-lg"
+          id="cnt-message"
+          placeholder="Digite sua mensagem."
+          name="cnt-message"
+          required
+          minlength="4"
+          rows="4"
+        >{{ form.message }}</textarea>
+        <!-- div class="valid-feedback">Valid.</div -->
+        <div class="invalid-feedback">Escreva sua mensagem.</div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg">Enviar</button>
+    </form>
+  </div>
+  {% endblock %}
+</div>

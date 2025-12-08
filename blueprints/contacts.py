@@ -21,7 +21,7 @@ def contacts_page():
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
 
-    # Se não está logado
+    # Se não está logado (não tem cookie)
     if owner_uid is None:
         # Fazer 'form.name', 'form.email' vazios
         own_name = ""
@@ -44,7 +44,9 @@ def contacts_page():
     # Inicializa campos do formulário
     form = {
         "name": own_name,
-        "email": own_email
+        "email": own_email,
+        "subject": "",
+        "message": ""
     }
 
     # Se o form foi enviado...
@@ -75,20 +77,22 @@ def contacts_page():
             form["message"],
         ))
 
-        # Salva a query no BD
+        # Salva a query no BD e fecha a conexão
         conn.commit()
+        conn.close()
 
         # Se o contato foi salvo no BD
         if cursor.rowcount == 1:
-            # Fecha o BD
-            conn.close()
             # Apaga dados do formulário
-            form = {}
+            form = {
+                "name": own_name,
+                "email": own_email,
+                "subject": "",
+                "message": ""
+            }
             # Mensagem flash para a próxima rota
             flash("Contato enviado com sucesso!", "success")
         else:
-            # Fecha o BD
-            conn.close()
             # Mensagem flash para a próxima rota
             flash(
                 "Oooops! Não foi possível enviar o contato. Tente novamente...", "danger")

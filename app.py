@@ -12,6 +12,11 @@ from blueprints.search import search_bp
 from blueprints.view import view_bp
 from blueprints.delete import delete_bp
 from blueprints.edit import edit_bp
+from blueprints.ownerdata import ownerdata_bp
+
+from blueprints.admin.contacts import admin_contacts_bp
+from blueprints.admin.contact import admin_contact_bp
+from blueprints.admin.contactdelete import admin_contact_delete_bp
 
 app = Flask(__name__)
 
@@ -20,6 +25,12 @@ app = Flask(__name__)
 def fmtdate(value):
     dt = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
     return dt.strftime("%d/%m/%Y às %H:%M")
+
+
+@app.template_filter("fmtnotime")
+def fmtdate(value):
+    dt = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+    return dt.strftime("%d/%m/%Y")
 
 
 # Chave secreta da sessão
@@ -42,16 +53,22 @@ app.register_blueprint(search_bp)
 app.register_blueprint(view_bp)
 app.register_blueprint(delete_bp)
 app.register_blueprint(edit_bp)
+app.register_blueprint(ownerdata_bp)
+
+# Rotas administrativas
+app.register_blueprint(admin_contacts_bp)
+app.register_blueprint(admin_contact_bp)
+app.register_blueprint(admin_contact_delete_bp)
 
 
 @app.route("/about")
 def about_page():
-    return render_template("about.html")
+    return render_template("about.html", page_title="Sobre...")
 
 
 @app.route("/privacy")
 def privacy_page():
-    return render_template("privacy.html")
+    return render_template("privacy.html", page_title="Políticas de Privacidade")
 
 
 if __name__ == '__main__':
